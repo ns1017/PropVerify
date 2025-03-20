@@ -4,3 +4,4 @@ so far poorly made, but still thinking about what kind of AI is best for this us
 
 
 YOU MUST INSTALL CHROME DRIVER.EXE 134.0.6998.35 FOR THIS TO WORK CORRECTLY.
+If you are an employer reviewing my code, please forgive me. I don't know how to make subdirectories on github, my code is organized locally.
