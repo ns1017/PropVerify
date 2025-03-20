@@ -1,0 +1,2 @@
+Python 3.11.8
+Libraries: flask, requests, scikit-learn, beautifulsoup4 - possibly depreciated, scrapy, flask-restful, selenium
