@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+input[type="text"] {
+    width: 80%;
+    max-width: 400px;
+    padding: 8px;
+    margin: 10px 0;
+}
+input[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+.result {
+    margin-top: 20px;
+    text-align: left;
+    display: inline-block;
+}
+select {
+    padding: 8px;
+    margin: 5px;
+}

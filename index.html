@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Lead Qualifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .input-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .input-group input {
+            flex: 1;
+            min-width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Property Lead Qualifier</h1>
+        <form method="POST" action="/">
+            <div class="input-group">
+                <input type="text" name="street" placeholder="Street (e.g., 300 W Market St)" required>
+                <input type="text" name="city" placeholder="City (e.g., Hallam)" required>
+                <input type="text" name="state" placeholder="State (e.g., PA)" maxlength="2" required>
+                <input type="text" name="zip" placeholder="ZIP (e.g., 17406)" maxlength="5" pattern="\d{5}" required>
+            </div>
+            <input type="submit" value="Search">
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Results for {{ result.address }}</h2>
+            <p><strong>Latitude:</strong> {{ result.lat }}</p>
+            <p><strong>Longitude:</strong> {{ result.lon }}</p>
+            <p><strong>Price:</strong> {{ result.price }}</p>
+            <p><strong>Year Built:</strong> {{ result.year_built }}</p>
+            <p><strong>Acreage:</strong> {{ result.acreage }}</p>
+            <p><strong>Home Type:</strong> {{ result.home_type }}</p>
+            <p><strong>Solar Info:</strong> {{ result.solar_info }}</p>
+            <p><strong>Source:</strong> {{ result.source }}</p>
+            <p><strong>Score:</strong> {{ result.score }}</p>
+            <p><strong>Confidence:</strong> {{ result.confidence }}%</p>
+
+            <h3>Provide Feedback</h3>
+            <form method="POST" action="/feedback">
+                <input type="hidden" name="address" value="{{ result.address }}">
+                <label>Solar Potential:</label>
+                <select name="solar">
+                    <option value="high">High</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <label>Repair Needs:</label>
+                <select name="repairs">
+                    <option value="high">High</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <input type="submit" value="Submit Feedback">
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
